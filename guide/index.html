@@ -37,7 +37,7 @@
     <ul id="nav">
         <li>
   <form id="search-form">
-    <input type="text" id="search-query">
+    <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
 <li><a href="/guide/" class="nav-link current">入门</a></li>
@@ -55,7 +55,7 @@
     <ul class="main-menu">
         <li>
   <form id="search-form">
-    <input type="text" id="search-query">
+    <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
 <li><a href="/guide/" class="nav-link current">入门</a></li>
@@ -130,7 +130,7 @@
                 </li>
             
                 <li>
-                    <a href="/guide/best-practices.html" class="sidebar-link new">提示和最佳实践</a>
+                    <a href="/guide/best-practices.html" class="sidebar-link new">最佳实践与技巧</a>
                 </li>
             
             <li><a href="http://legacy.vuejs.org">旧版 0.11 文档</a></li>
@@ -189,7 +189,8 @@
 <h3 id="过滤器_(Filters)">过滤器 (Filters)</h3><p>过滤器是用于在更新视图之前处理原始值的函数。它们通过一个“管道”在指令或绑定中进行处理：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span>&#123;&#123;message | capitalize&#125;&#125;<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>这样在 div 的文本内容被更新之前，<code>message</code> 的值会先传给 <code>capitalizie</code> 函数处理。更多内容可移步至<a href="../guide/filters.html">深入了解过滤器 (Filters)</a>。</p>
-<h3 id="组件_(Components)">组件 (Components)</h3><p>在 Vue.js，每个组件都是一个简单的 Vue 实例。一个树形嵌套的各种组件就代表了你的应用程序的各种接口。通过 <code>Vue.extend</code> 返回的自定义构造函数可以把这些组件实例化，不过更声明式的建议是通过 <code>Vue.component(id, constructor)</code> 注册这些组件。一旦组件被注册，它们就可以在 Vue 实例的模板中以自定义组件形式使用了。</p>
+<h3 id="组件_(Components)">组件 (Components)</h3><p><img src="/images/components.png" alt="Component Tree"></p>
+<p>在 Vue.js，每个组件都是一个简单的 Vue 实例。一个树形嵌套的各种组件就代表了你的应用程序的各种接口。通过 <code>Vue.extend</code> 返回的自定义构造函数可以把这些组件实例化，不过更声明式的建议是通过 <code>Vue.component(id, constructor)</code> 注册这些组件。一旦组件被注册，它们就可以在 Vue 实例的模板中以自定义组件形式使用了。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">my-component</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- internals handled by my-component --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>这个简单的机制使得我们可以以类似 <a href="http://www.w3.org/TR/components-intro/" target="_blank" rel="external">Web Components</a> 的声明形式对 Vue 实例进行复用和组合，无需最新版的浏览器或笨重的 polyfills。通过将一个应用程序拆分成简单的组件，代码库可以被尽可能的解耦，同时更易于维护。更多内容可移步至<a href="../guide/components.html">组件系统</a>。</p>
 <h2 id="一个简单的例子">一个简单的例子</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"demo"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">h1</span>&gt;</span>&#123;&#123;title | uppercase&#125;&#125;<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span></span><br><span class="line">      <span class="attribute">v-repeat</span>=<span class="value">"todos"</span></span><br><span class="line">      <span class="attribute">v-on</span>=<span class="value">"click: done = !done"</span></span><br><span class="line">      <span class="attribute">class</span>=<span class="value">"&#123;&#123;done ? 'done' : ''&#125;&#125;"</span>&gt;</span></span><br><span class="line">      &#123;&#123;content&#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>

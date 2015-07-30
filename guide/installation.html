@@ -37,7 +37,7 @@
     <ul id="nav">
         <li>
   <form id="search-form">
-    <input type="text" id="search-query">
+    <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
 <li><a href="/guide/" class="nav-link current">入门</a></li>
@@ -55,7 +55,7 @@
     <ul class="main-menu">
         <li>
   <form id="search-form">
-    <input type="text" id="search-query">
+    <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
 <li><a href="/guide/" class="nav-link current">入门</a></li>
@@ -130,7 +130,7 @@
                 </li>
             
                 <li>
-                    <a href="/guide/best-practices.html" class="sidebar-link new">提示和最佳实践</a>
+                    <a href="/guide/best-practices.html" class="sidebar-link new">最佳实践与技巧</a>
                 </li>
             
             <li><a href="http://legacy.vuejs.org">旧版 0.11 文档</a></li>
@@ -159,7 +159,6 @@
 <h3 id="CSP_一致版本">CSP 一致版本</h3><p>部分环境，诸如 Google Chrome Apps，强制要求内容加密策略 (CSP) 并且不允许使用<code>new Function()</code> 作为计算表达式。在此情况下，你可以用 <a href="https://github.com/yyx990803/vue/tree/csp/dist" target="_blank" rel="external">CSP一致版本</a>代替。</p>
 <h2 id="NPM">NPM</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install vue</span><br><span class="line"><span class="comment"># 获取CSP一致版本：</span></span><br><span class="line">$ npm install vue@csp</span><br><span class="line"><span class="comment"># 获取最新开发版本(来自于GitHub):</span></span><br><span class="line">$ npm install yyx990803/vue<span class="comment">#dev</span></span><br></pre></td></tr></table></figure>
 <h2 id="Bower">Bower</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Bower 只能够获得稳定版本</span></span><br><span class="line">$ bower install vue</span><br></pre></td></tr></table></figure>
-<h2 id="Duo">Duo</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Vue = <span class="built_in">require</span>(<span class="string">'yyx990803/vue'</span>)</span><br><span class="line"><span class="comment">// 获得尖端版本：</span></span><br><span class="line"><span class="keyword">var</span> Vue = <span class="built_in">require</span>(<span class="string">'yyx990803/vue@dev'</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="AMD_模块加载器">AMD 模块加载器</h2><p>直接下载或通过 Bower 安装的版本已经用 UMD 接口包装过，可以直接作为 AMD 模块使用。</p>
 <h2 id="准备好了吗？">准备好了吗？</h2><p><a href="../guide/">走起！</a></p>
 

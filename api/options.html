@@ -37,7 +37,7 @@
     <ul id="nav">
         <li>
   <form id="search-form">
-    <input type="text" id="search-query">
+    <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
 <li><a href="/guide/" class="nav-link">入门</a></li>
@@ -55,7 +55,7 @@
     <ul class="main-menu">
         <li>
   <form id="search-form">
-    <input type="text" id="search-query">
+    <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
 <li><a href="/guide/" class="nav-link">入门</a></li>
@@ -147,7 +147,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'prop-validation-demo'</span>, &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    size: <span class="built_in">Number</span>,</span><br><span class="line">    name: &#123;</span><br><span class="line">      type: <span class="built_in">String</span>,</span><br><span class="line">      required: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>下面的组件用法会导致两个警告： size 的类型不匹配，和缺失要求的属性 “name” 。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">prop-validation-demoo</span> <span class="attribute">size</span>=<span class="value">"hello"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">prop-validation-demo</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>更多关于基于对象的语法和属性验证的内容，请看<a href="/guide/components.html#Prop_Validation">属性验证</a>。</p>
+<p>更多关于基于对象的语法和属性验证的内容，请看<a href="/guide/components.html#Prop_Specification">属性验证</a>。</p>
 <h4 id="连字符特性的注解">连字符特性的注解</h4><p>HTML 特性名忽略大小写的区别，所以我们通常使用连字符属性代替驼峰形式。使用包含连字符特性的 <code>props</code> 的时候，有一些使用特殊情况：</p>
 <ol>
 <li><p>如果该特性是一个数据特性， <code>data-</code> 前缀会自动去掉；</p>

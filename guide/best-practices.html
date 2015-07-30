@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>提示和最佳实践 - vue.js</title>
+        <title>最佳实践与技巧 - vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -37,7 +37,7 @@
     <ul id="nav">
         <li>
   <form id="search-form">
-    <input type="text" id="search-query">
+    <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
 <li><a href="/guide/" class="nav-link current">入门</a></li>
@@ -55,7 +55,7 @@
     <ul class="main-menu">
         <li>
   <form id="search-form">
-    <input type="text" id="search-query">
+    <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
 <li><a href="/guide/" class="nav-link current">入门</a></li>
@@ -130,7 +130,7 @@
                 </li>
             
                 <li>
-                    <a href="/guide/best-practices.html" class="sidebar-link current new">提示和最佳实践</a>
+                    <a href="/guide/best-practices.html" class="sidebar-link current new">最佳实践与技巧</a>
                 </li>
             
             <li><a href="http://legacy.vuejs.org">旧版 0.11 文档</a></li>
@@ -145,7 +145,7 @@
 
 
 <div class="content guide with-sidebar">
-    <h1>提示和最佳实践</h1>
+    <h1>最佳实践与技巧</h1>
     <div id="ad">
         <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
     </div>
@@ -249,6 +249,7 @@ new Vue({
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- doesn't work due to no root element --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">example</span> <span class="attribute">v-show</span>=<span class="value">"ok"</span> <span class="attribute">v-transition</span>=<span class="value">"fade"</span>&gt;</span><span class="tag">&lt;/<span class="title">example</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- props work as intended --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">example</span> <span class="attribute">prop</span>=<span class="value">"&#123;&#123;someData&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="title">example</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>当然片断实例有使用场景，但是一般情况下给组件模板一个根元素比较好。这样组件元素上的指令和属性能正常运转，并且性能会更好一点。</p>
 <h2 id="改变默认选项">改变默认选项</h2><p>可以通过设置 <code>Vue.options</code> ，去改变选项的默认值。例如，你可以设置 <code>Vue.options.replace = false</code> ，使所有 Vue 实例变量都表现出 <code>replace: false</code> 。小心使用这个特性，最好当你开始一个新项目的时候使用它，因为它会影响所有 Vue 实例变量的行为。</p>
+<p>接下来：<a href="/guide/faq.html">常见问题</a>.</p>
 
     <div class="footer">发现了问题或想要贡献？来 Github 给 Vue.js <a href="https://github.com/vuejs/vuejs.org" target="_blank">英文站点</a>或<a href="https://github.com/Jinjiang/vuejs.org/tree/lang-zh" target="_blank">中文翻译</a>来个 Fork 吧！</div>
 </div>

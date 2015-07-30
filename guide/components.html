@@ -37,7 +37,7 @@
     <ul id="nav">
         <li>
   <form id="search-form">
-    <input type="text" id="search-query">
+    <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
 <li><a href="/guide/" class="nav-link current">入门</a></li>
@@ -55,7 +55,7 @@
     <ul class="main-menu">
         <li>
   <form id="search-form">
-    <input type="text" id="search-query">
+    <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
 <li><a href="/guide/" class="nav-link current">入门</a></li>
@@ -130,7 +130,7 @@
                 </li>
             
                 <li>
-                    <a href="/guide/best-practices.html" class="sidebar-link new">提示和最佳实践</a>
+                    <a href="/guide/best-practices.html" class="sidebar-link new">最佳实践与技巧</a>
                 </li>
             
             <li><a href="http://legacy.vuejs.org">旧版 0.11 文档</a></li>
@@ -291,7 +291,7 @@ var parent2 = new Vue({
 </script>
 
 <h3 id="在组件循环中使用标识符">在组件循环中使用标识符</h3><p>在组件中标识符语法同样适用，并且被循环的数据会被设置成组件的一个属性，以标识符作为键名：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">"list-example"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 在组件内部可以通过 `this.user` 访问数据 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">user-profile</span> <span class="attribute">v-repeat</span>=<span class="value">"user:users"</span>&gt;</span><span class="tag">&lt;/<span class="title">user-profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">"list-example"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 在组件内部可以通过 `this.user` 访问数据 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">user-profile</span> <span class="attribute">v-repeat</span>=<span class="value">"user in users"</span>&gt;</span><span class="tag">&lt;/<span class="title">user-profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p class="tip">注意一旦组件跟 <code>v-repeat</code> 一同使用，同样的作用域规则也会被应用到该组件容器上的其他命令。结果就是，你在父级模板中将获取不到 <code>$index</code>；只能在组件自身的模板中获取。<br><br>或者，你也可以通过循环 <code>&lt;template&gt;</code> 来建立一个媒介作用域，但是大多数情况下在组件内部使用 <code>$index</code> 是更好的实践。</p>
 
 <h2 id="子组件引用">子组件引用</h2><p>某些情况下需要通过 JavaScript 访问嵌套的子组件。要实现这种操作，需要使用 <code>v-ref</code> 为子组件分配一个 ID。例如：</p>
