@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>过滤器 - vue.js</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Source+Code+Pro|Dosis:300,500' rel='stylesheet' type='text/css'> -->
+        <link rel="icon" href="/images/logo.png" type="image/x-icon">
+        <script>
+            window.PAGE_TYPE = "api"
+        </script>
+        <link rel="stylesheet" href="/css/page.css" type="text/css">
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46852172-1', 'vuejs.org');
+  ga('send', 'pageview');
+</script>
+        <script src="/js/vue.js"></script>
+    </head>
+    <body>
+        <div id="mobile-bar">
+            <a class="menu-button"></a>
+            <a class="logo" href="/"></a>
+        </div>
+        
+            <div id="header">
+    <a id="logo" href="/">
+        <img src="/images/logo.png">
+        <span>Vue.js</span>
+    </a>
+    <ul id="nav">
+        <li>
+  <form id="search-form">
+    <input type="text" id="search-query">
+  </form>
+</li>
+<li><a href="/guide/" class="nav-link">入门</a></li>
+<li><a href="/api/" class="nav-link current">API</a></li>
+<li><a href="/examples/" class="nav-link">示例</a></li>
+<li><a href="/blog/" class="nav-link">Blog (英文)</a></li>
+<li><a href="https://github.com/yyx990803/vue" target="_blank" class="nav-link">GitHub</a></li>
+
+    </ul>
+</div>
+            <div id="main">
+                
+                    
+    <div class="sidebar">
+    <ul class="main-menu">
+        <li>
+  <form id="search-form">
+    <input type="text" id="search-query">
+  </form>
+</li>
+<li><a href="/guide/" class="nav-link">入门</a></li>
+<li><a href="/api/" class="nav-link current">API</a></li>
+<li><a href="/examples/" class="nav-link">示例</a></li>
+<li><a href="/blog/" class="nav-link">Blog (英文)</a></li>
+<li><a href="https://github.com/yyx990803/vue" target="_blank" class="nav-link">GitHub</a></li>
+
+    </ul>
+    <div class="list">
+        <h2>Api</h2>
+        <ul class="menu-root">
+            
+                <li>
+                    <a href="/api/index.html" class="sidebar-link">Vue 构造函数</a>
+                </li>
+            
+                <li>
+                    <a href="/api/options.html" class="sidebar-link">组件选项</a>
+                </li>
+            
+                <li>
+                    <a href="/api/instance-properties.html" class="sidebar-link">实例属性</a>
+                </li>
+            
+                <li>
+                    <a href="/api/instance-methods.html" class="sidebar-link">实例方法</a>
+                </li>
+            
+                <li>
+                    <a href="/api/global-api.html" class="sidebar-link">全局 API</a>
+                </li>
+            
+                <li>
+                    <a href="/api/directives.html" class="sidebar-link">指令</a>
+                </li>
+            
+                <li>
+                    <a href="/api/filters.html" class="sidebar-link current">过滤器</a>
+                </li>
+            
+                <li>
+                    <a href="/api/elements.html" class="sidebar-link new">特殊元素</a>
+                </li>
+            
+            <li><a href="http://legacy.vuejs.org">旧版 0.11 文档</a></li>
+            <li style="margin:10px 0 3px">
+              <script data-gittip-username="yyx990803"
+                data-gittip-widget="button"
+                src="//gttp.co/v1.js"></script>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="content api with-sidebar">
+    <h1>过滤器</h1>
+    <div id="ad">
+        <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
+    </div>
+    <h3 id="capitalize">capitalize</h3><p><em>‘abc’ =&gt; ‘Abc’</em></p>
+<h3 id="uppercase">uppercase</h3><p><em>‘abc’ =&gt; ‘ABC’</em></p>
+<h3 id="lowercase">lowercase</h3><p><em>‘ABC’ =&gt; ‘abc’</em></p>
+<h3 id="currency">currency</h3><ul>
+<li>这个 filter 接受一个可选参数</li>
+</ul>
+<p><em>12345 =&gt; $12,345.00</em></p>
+<p>你可以传递一个可选参数来表示货币符号</p>
+<h3 id="pluralize">pluralize</h3><ul>
+<li>这个 filter 接受至少一个参数</li>
+</ul>
+<p>根据要处理的值来将参数转换为复数。当只有一个参数时，其复数形式就是在参数末尾加上“s”。当参数多于一个时，所有的参数将会以字符串数组的形式对应要被转换为复数的单词的“一倍”、“两倍”、“三倍”……形式。当复数的数量超过参数个数时，会使用最后一个参数。</p>
+<p><strong>例子：</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;count&#125;&#125; &#123;&#123;count | pluralize 'item'&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p><em>1 =&gt; ‘1 item’</em><br><em>2 =&gt; ‘2 items’</em></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;date&#125;&#125;&#123;&#123;date | pluralize 'st' 'nd' 'rd' 'th'&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>结果为:</p>
+<p><em>1 =&gt; ‘1st’</em><br><em>2 =&gt; ‘2nd’</em><br><em>3 =&gt; ‘3rd’</em><br><em>4 =&gt; ‘4th’</em><br><em>5 =&gt; ‘5th’</em></p>
+<h3 id="json">json</h3><ul>
+<li>这个 filter 接受一个可选参数</li>
+</ul>
+<p>使用 <code>JSON.stringify()</code> 来处理值而不是直接将其字符串化（如 <code>[object Object]</code>)。这个 filter 接受一个可选参数来指定缩进级别（默认是 2）。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">pre</span>&gt;</span>&#123;&#123;$data | json 4&#125;&#125;<span class="tag">&lt;/<span class="title">pre</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="key">key</h3><ul>
+<li>这个 filter 只工作于 <code>v-on</code></li>
+<li>这个 filter 接收一个参数</li>
+</ul>
+<p>包裹 handler 使得其仅在 keyCode 是指定的参数时才被调用。你也可以使用几个常用键值的别名：</p>
+<ul>
+<li>enter</li>
+<li>tab</li>
+<li>delete</li>
+<li>esc</li>
+<li>up</li>
+<li>down</li>
+<li>left</li>
+<li>right</li>
+</ul>
+<p><strong>例子：</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">v-on</span>=<span class="value">"keyup:doSomething | key 'enter'"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>只有按回车键（enter）时才会调用 <code>doSomething</code> 。</p>
+<h3 id="filterBy">filterBy</h3><p><strong>语法：</strong> <code>filterBy searchKey [in dataKey]</code>.</p>
+<ul>
+<li>这个 filter 只工作于 <code>v-repeat</code></li>
+<li>这是一个 computed filter</li>
+</ul>
+<p>使得 <code>v-repeat</code> 只显示数组过滤后的结果。<code>searchKey</code> 参数是当前 ViewModel 的一个属性名。这个属性的值会被用作查找的目标：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">v-model</span>=<span class="value">"searchText"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">v-repeat</span>=<span class="value">"users | filterBy searchText"</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当使用这个 filter 时，将递归遍历 <code>users</code> 数组的每一个元素来寻找 <code>searchText</code> 的当前值从而过滤该数组。举例来说，如果一个条目是 <code>{ name: &#39;Jack&#39;, phone: &#39;555-123-4567&#39; }</code>，而 <code>searchText</code> 的值是 <code>&#39;555&#39;</code>，这个条目就被认为是符合条件。</p>
+<p>可选地，你可以通过 <code>in dataKey</code> 参数来指定具体要查找哪个属性：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">v-model</span>=<span class="value">"searchText"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">v-repeat</span>=<span class="value">"users | filterBy searchText in name"</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>现在只有当 <code>name</code> 属性包含 <code>searchText</code> 时这个条目才符合条件。所以当 <code>searchText</code> 的值是 <code>&#39;555&#39;</code> 时这个条目将不符合条件，而当值是 <code>&#39;Jack&#39;</code> 时即符合。</p>
+<p>最后，你可以使用引号来表示字面量参数：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">v-repeat</span>=<span class="value">"users | filterBy '555' in 'phone'"</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="orderBy">orderBy</h3><p><strong>语法：</strong> <code>orderBy sortKey [reverseKey]</code>.</p>
+<ul>
+<li>这个 filter 只工作于 <code>v-repeat</code></li>
+<li>这是一个 computed filter</li>
+</ul>
+<p>将 <code>v-repeat</code> 的结果排序。<code>sortKey</code>参数是当前 ViewModel 的一个属性名。这个属性的值表示用来排序的键名。可选的 <code>reverseKey</code> 参数也是当前 ViewModel 的一个属性名，如果这个属性值为真则数组会被倒序排列。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">v-repeat</span>=<span class="value">"users | orderBy field reverse"</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">  data: &#123;</span><br><span class="line">    field: <span class="string">'name'</span>,</span><br><span class="line">    reverse: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>你可以使用引号来表示字面量的排序键名。使用 <code>-1</code> 来表示字面量的 <code>reverse</code> 参数。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">v-repeat</span>=<span class="value">"users | orderBy 'name' -1"</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+    <div class="footer">发现了问题或想要贡献？来 Github 给 Vue.js <a href="https://github.com/vuejs/vuejs.org" target="_blank">英文站点</a>或<a href="https://github.com/Jinjiang/vuejs.org/tree/lang-zh" target="_blank">中文翻译</a>来个 Fork 吧！</div>
+</div>
+                
+            </div>
+            <script src="/js/smooth-scroll.min.js"></script>
+            <script src="/js/common.js"></script>
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                FastClick.attach(document.body);
+            }, false);
+        </script>
+    </body>
+</html>
