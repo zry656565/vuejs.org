@@ -144,7 +144,7 @@
 <p>除 0 外的其他伪值将移除该特性.</p>
 <p>或者，你可以直接将该指令绑定到一个对象。对象关键词 keys 将使特性列根据对应值予以设定。</p>
 <p>本质上，普通特性中的  插值会被编译到计算后的 <code>v-attr</code> 指令当中。</p>
-<p>从 0.12.8 开始，若相对应的属性存在，<code>v-attr</code> 会同时设置相应属性。例如，<input value="{{val}}"> 将不仅更新特性，也设置属性值。如果元素绑定的特性没有相应的属性，则不会去设置。</p>
+<p>从 0.12.8 开始，当  直接用在 <code>&lt;input&gt;</code> 控件的 <code>value</code> 特性时，其相应的 <code>value</code> 属性也会被设置。例如，<code>&lt;input value=&quot;{{val}}&quot;&gt;</code> 不仅会更新特性值，也会设置其属性值。</p>
 <p class="tip">在为 <code>&lt;img&gt;</code> 元素设置 <code>src</code> 特性时，应该使用 <code>v-attr</code> 绑定而不是 mustache 模板绑定。浏览器会先于 Vue.js 对你的模板进行解析。所以当浏览器试图获取图片 URL 时，使用 mustache 模板绑定的数据会导致 404 错误。</p>
 
 <h3 id="v-style">v-style</h3><ul>
