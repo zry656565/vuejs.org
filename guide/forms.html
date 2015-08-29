@@ -9,7 +9,7 @@
         <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Source+Code+Pro|Dosis:300,500' rel='stylesheet' type='text/css'> -->
         <link rel="icon" href="/images/logo.png" type="image/x-icon">
         <script>
-            window.PAGE_TYPE = "guide"
+            window.PAGE_TYPE = "教程"
         </script>
         <link rel="stylesheet" href="/css/page.css" type="text/css">
         <script>
@@ -40,10 +40,10 @@
     <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
-<li><a href="/guide/" class="nav-link current">入门</a></li>
+<li><a href="/guide/" class="nav-link current">教程</a></li>
 <li><a href="/api/" class="nav-link">API</a></li>
 <li><a href="/examples/" class="nav-link">示例</a></li>
-<li><a href="/blog/" class="nav-link">Blog (英文)</a></li>
+<li><a href="/blog/" class="nav-link">Blog</a></li>
 <li><a href="https://github.com/yyx990803/vue" target="_blank" class="nav-link">GitHub</a></li>
 
     </ul>
@@ -58,15 +58,15 @@
     <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
-<li><a href="/guide/" class="nav-link current">入门</a></li>
+<li><a href="/guide/" class="nav-link current">教程</a></li>
 <li><a href="/api/" class="nav-link">API</a></li>
 <li><a href="/examples/" class="nav-link">示例</a></li>
-<li><a href="/blog/" class="nav-link">Blog (英文)</a></li>
+<li><a href="/blog/" class="nav-link">Blog</a></li>
 <li><a href="https://github.com/yyx990803/vue" target="_blank" class="nav-link">GitHub</a></li>
 
     </ul>
     <div class="list">
-        <h2>Guide</h2>
+        <h2>教程</h2>
         <ul class="menu-root">
             
                 <li>
@@ -86,7 +86,7 @@
                 </li>
             
                 <li>
-                    <a href="/guide/list.html" class="sidebar-link">列表展示</a>
+                    <a href="/guide/list.html" class="sidebar-link">列表渲染</a>
                 </li>
             
                 <li>
@@ -98,7 +98,7 @@
                 </li>
             
                 <li>
-                    <a href="/guide/computed.html" class="sidebar-link">可推导的属性</a>
+                    <a href="/guide/computed.html" class="sidebar-link">计算属性</a>
                 </li>
             
                 <li>
@@ -126,11 +126,11 @@
                 </li>
             
                 <li>
-                    <a href="/guide/faq.html" class="sidebar-link">常见问题</a>
+                    <a href="/guide/best-practices.html" class="sidebar-link new">细节与最佳实践</a>
                 </li>
             
                 <li>
-                    <a href="/guide/best-practices.html" class="sidebar-link new">最佳实践与技巧</a>
+                    <a href="/guide/faq.html" class="sidebar-link">常见问题</a>
                 </li>
             
             <li><a href="http://legacy.vuejs.org">旧版 0.11 文档</a></li>
@@ -144,12 +144,12 @@
 </div>
 
 
-<div class="content guide with-sidebar">
+<div class="content 教程 with-sidebar">
     <h1>处理表单</h1>
     <div id="ad">
         <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
     </div>
-    <h2 id="基本用法">基本用法</h2><p>你可以在表单的 input 元素上使用 <code>v-model</code> 指令来创建双向数据绑定。它会根据 input type 自动选取正确的方式更新元素。</p>
+    <h2 id="基本用法">基本用法</h2><p>你可以在表单的 input 元素上使用 <code>v-model</code> 指令来创建双向数据绑定。它会根据 input 元素的类型自动选取正确的绑定模式。</p>
 <p><strong>示例</strong></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">id</span>=<span class="value">"demo"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- text --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">v-model</span>=<span class="value">"msg"</span>&gt;</span></span><br><span class="line">    &#123;&#123;msg&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- checkbox --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"checkbox"</span> <span class="attribute">v-model</span>=<span class="value">"checked"</span>&gt;</span></span><br><span class="line">    &#123;&#123;checked ? "yes" : "no"&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- radio buttons --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">name</span>=<span class="value">"picked"</span> <span class="attribute">value</span>=<span class="value">"one"</span> <span class="attribute">v-model</span>=<span class="value">"picked"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">name</span>=<span class="value">"picked"</span> <span class="attribute">value</span>=<span class="value">"two"</span> <span class="attribute">v-model</span>=<span class="value">"picked"</span>&gt;</span></span><br><span class="line">    &#123;&#123;picked&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- select --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">select</span> <span class="attribute">v-model</span>=<span class="value">"selected"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">option</span>&gt;</span>one<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">option</span>&gt;</span>two<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br><span class="line">    &#123;&#123;selected&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- multiple select --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">select</span> <span class="attribute">v-model</span>=<span class="value">"multiSelect"</span> <span class="attribute">multiple</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">option</span>&gt;</span>one<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">option</span>&gt;</span>two<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">option</span>&gt;</span>three<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br><span class="line">    &#123;&#123;multiSelect&#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">pre</span>&gt;</span>data: &#123;&#123;$data | json 2&#125;&#125;<span class="tag">&lt;/<span class="title">pre</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#demo'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    msg      : <span class="string">'hi!'</span>,</span><br><span class="line">    checked  : <span class="literal">true</span>,</span><br><span class="line">    picked   : <span class="string">'one'</span>,</span><br><span class="line">    selected : <span class="string">'two'</span>,</span><br><span class="line">    multiSelect: [<span class="string">'one'</span>, <span class="string">'three'</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -168,26 +168,51 @@ new Vue({
 })
 </script>
 
-<h2 id="懒更新">懒更新</h2><p>默认情况下，<code>v-model</code> 会在每个 <code>input</code> 事件之后同步输入的数据。你可以添加一个 <code>lazy</code> 特性，将其改变为在 <code>change</code> 事件之后才进行同步。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- synced after "change" instead of "input" --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">v-model</span>=<span class="value">"msg"</span> <span class="attribute">lazy</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="转换为数字">转换为数字</h2><p>如果你希望用户的输入自动处理为一个数字，你可以在 <code>v-model</code> 所在的 input 上添加一个 <code>number</code> 特性。</p>
+<h2 id="惰性更新">惰性更新</h2><p>默认情况下，<code>v-model</code> 会在每个 <code>input</code> 事件之后同步输入的数据。你可以添加一个 <code>lazy</code> 特性，将其改变为在 <code>change</code> 事件之后才进行同步。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 在 "change" 而不是 "input" 事件触发后进行同步 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">v-model</span>=<span class="value">"msg"</span> <span class="attribute">lazy</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="转换为数字">转换为数字</h2><p>如果你希望将用户的输入自动转换为数字，你可以在 <code>v-model</code> 所在的 input 上添加一个 <code>number</code> 特性。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">v-model</span>=<span class="value">"age"</span> <span class="attribute">number</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="动态_select_选项">动态 select 选项</h2><p>当你需要为一个 <code>&lt;select&gt;</code> 元素动态渲染列表选项时，我们推荐 <code>options</code> 和 <code>v-model</code> 特性配合使用，这样当选项动态改变时，<code>v-model</code>会正确地同步：</p>
+<h2 id="Bind_to_Expressions">Bind to Expressions</h2><blockquote>
+<p>^0.12.12 only</p>
+</blockquote>
+<p>When using <code>v-model</code> on checkbox and radio inputs, the bound value is either a boolean or a string:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- toggle is either true or false --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"checkbox"</span> <span class="attribute">v-model</span>=<span class="value">"toggle"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- pick is "red" when this radio box is selected --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">v-model</span>=<span class="value">"pick"</span> <span class="attribute">value</span>=<span class="value">"red"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>This can be a bit limiting - sometimes we may want to bind the underlying value to something else. Here’s how you can do that:</p>
+<p><strong>Checkbox</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"checkbox"</span> <span class="attribute">v-model</span>=<span class="value">"toggle"</span> <span class="attribute">true-exp</span>=<span class="value">"a"</span> <span class="attribute">false-exp</span>=<span class="value">"b"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// when checked:</span></span><br><span class="line">vm.toggle === vm.a</span><br><span class="line"><span class="comment">// when unchecked:</span></span><br><span class="line">vm.toggle === vm.b</span><br></pre></td></tr></table></figure>
+<p><strong>Radio</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">v-model</span>=<span class="value">"pick"</span> <span class="attribute">exp</span>=<span class="value">"a"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// when checked:</span></span><br><span class="line">vm.pick === vm.a</span><br></pre></td></tr></table></figure>
+<h2 id="动态_select_选项">动态 select 选项</h2><p>当你需要为一个 <code>&lt;select&gt;</code> 元素动态渲染列表选项时，推荐将 <code>options</code> 特性和 <code>v-model</code> 指令配合使用，这样当选项动态改变时，<code>v-model</code> 会正确地同步：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">select</span> <span class="attribute">v-model</span>=<span class="value">"selected"</span> <span class="attribute">options</span>=<span class="value">"myOptions"</span>&gt;</span><span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在你的数据里，<code>myOptions</code> 应该是一个指向选项数组的路径/表达式。</p>
-<p>该数组可以包含普通字符串或对象。对象的格式应为 <code>{text:&#39;&#39;, value:&#39;&#39;}</code>。这允许你把展示的文字和其背后对应的值区分开来。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123; text: <span class="string">'A'</span>, value: <span class="string">'a'</span> &#125;,</span><br><span class="line">  &#123; text: <span class="string">'B'</span>, value: <span class="string">'b'</span> &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>在你的数据里，<code>myOptions</code> 应该是一个指向选项数组的路径或是表达式。</p>
+<p>这个可选的数组可以包含单纯的数组：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">options = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br></pre></td></tr></table></figure>
+<p>Or, it can contain objects in the format of <code>{text:&#39;&#39;, value:&#39;&#39;}</code>. This object format allows you to have the option text displayed differently from its underlying value:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">options = [</span><br><span class="line">  &#123; text: <span class="string">'A'</span>, value: <span class="string">'a'</span> &#125;,</span><br><span class="line">  &#123; text: <span class="string">'B'</span>, value: <span class="string">'b'</span> &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <p>会渲染成：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">select</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"a"</span>&gt;</span>A<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"b"</span>&gt;</span>B<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>另外，数组里对象的格式也可以是 <code>{label:&#39;&#39;, options:[...]}</code>。这样的数据会被渲染成为一个 <code>&lt;optgroup&gt;</code>：</p>
+<p>The <code>value</code> can also be Objects:</p>
+<blockquote>
+<p>0.12.11+ only</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">options = [</span><br><span class="line">  &#123; text: <span class="string">'A'</span>, value: &#123; msg: <span class="string">'hello'</span> &#125;&#125;,</span><br><span class="line">  &#123; text: <span class="string">'B'</span>, value: &#123; msg: <span class="string">'bye'</span> &#125;&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="Option_Groups">Option Groups</h3><p>另外，数组里对象的格式也可以是 <code>{label:&#39;&#39;, options:[...]}</code>。这样的数据会被渲染成为一个 <code>&lt;optgroup&gt;</code>：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123; label: <span class="string">'A'</span>, options: [<span class="string">'a'</span>, <span class="string">'b'</span>]&#125;,</span><br><span class="line">  &#123; label: <span class="string">'B'</span>, options: [<span class="string">'c'</span>, <span class="string">'d'</span>]&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <p>会渲染成：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">select</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">optgroup</span> <span class="attribute">label</span>=<span class="value">"A"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"a"</span>&gt;</span>a<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"b"</span>&gt;</span>b<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">optgroup</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">optgroup</span> <span class="attribute">label</span>=<span class="value">"B"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"c"</span>&gt;</span>c<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"d"</span>&gt;</span>d<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">optgroup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>有很大可能，你接入的源数据并非期望的格式，你必须转换数据来生成动态选项列。为了尽量消除这种转换，<code>options</code> 参数支持过滤器，对将你的转换逻辑做成一个可复用的<a href="/guide/custom-filter.html">定制过滤器</a>很有帮助：</p>
+<h3 id="选项过滤">选项过滤</h3><p>你的原始数据很有可能不是这里所要求的格式，因此在动态生成选项时必须进行一些数据转换。为了简化这种转换，<code>options</code> 特性支持过滤器。将数据的转换逻辑做成一个可复用的 <a href="/guide/custom-filter.html">自定义过滤器</a> 通常来说是个好主意：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(<span class="string">'extract'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value, keyToExtract</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value.map(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> item[keyToExtract]</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">select</span></span><br><span class="line">  <span class="attribute">v-model</span>=<span class="value">"selectedUser"</span></span><br><span class="line">  <span class="attribute">options</span>=<span class="value">"users | extract 'name'"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>上述过滤器将像<code>[{ name: &#39;Bruce&#39; }, { name: &#39;Chuck&#39; }]</code>这样的数据转化为<code>[&#39;Bruce&#39;, &#39;Chuck&#39;]</code>，它变成了正确的格式。</p>
-<h2 id="输入去抖动">输入去抖动</h2><p>在一次输入被同步到模型model之前，<code>debounce</code>参数允许你设置一个每次按键后的最低延迟。当每次更新前你要执行繁重作业时会很有用，例如一个ajax请求来进行提前键入的自动完成。</p>
+<p>上述过滤器将像 <code>[{ name: &#39;Bruce&#39; }, { name: &#39;Chuck&#39; }]</code> 这样的原始数据转化为 <code>[&#39;Bruce&#39;, &#39;Chuck&#39;]</code>，从而符合动态选项的格式要求。</p>
+<h3 id="静态默认选项">静态默认选项</h3><blockquote>
+<p>需要 0.12.10+</p>
+</blockquote>
+<p>除了动态生成的选项之外，你还可以提供一个静态的默认选项：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">select</span> <span class="attribute">v-model</span>=<span class="value">"selectedUser"</span> <span class="attribute">options</span>=<span class="value">"users"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">""</span>&gt;</span>Select a user...<span class="tag">&lt;/<span class="title">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>基于 <code>users</code> 动态生成的选项将会被添加到这个静态选项后面。如果 <code>v-model</code> 的绑定值为除 <code>0</code> 之外的伪值，则会自动选中该默认选项。</p>
+<h2 id="输入_Debounce">输入 Debounce</h2><p>在一次输入被同步到模型之前，<code>debounce</code> 特性允许你设置一个每次用户事件后的等待延迟。如果在这个延迟到期之前用户再次输入，则不会立刻触发更新，而是重置延迟的等待时间。当每次更新前你要执行繁重作业时会很有用，例如一个基于 ajax 的自动补全功能。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">v-model</span>=<span class="value">"msg"</span> <span class="attribute">debounce</span>=<span class="value">"500"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong>结果</strong></p>
 <p><div id="debounce-demo" class="demo">{&#123;msg&#125;}<br><input v-model="msg" debounce="500"></div></p>
@@ -198,8 +223,8 @@ new Vue({
 })
 </script>
 
-<p>注意 <code>debounce</code> 参数不能对用户的输入事件去抖动：它对底层数据的“写入“操作进行去抖动。因此当使用<code>debounce</code>时，你应该用<code>vm.$watch()</code>来响应数据变化。</p>
-<p>接下来：<a href="../guide/computed.html">可推导的属性</a>.</p>
+<p>注意 <code>debounce</code> 参数并不对用户的输入事件进行 debounce：它只对底层数据的 “写入” 操作起作用。因此当使用 <code>debounce</code> 时，你应该用 <code>vm.$watch()</code> 而不是 <code>v-on</code> 来响应数据变化。 关于 debounce 实际 DOM 事件你应该使用 <a href="/api/filters.html#debounce">debounce 过滤器</a>.</p>
+<p>下一步：<a href="../guide/computed.html">计算属性</a>.</p>
 
     <div class="footer">发现了问题或想要贡献？来 Github 给 Vue.js <a href="https://github.com/vuejs/vuejs.org" target="_blank">英文站点</a>或<a href="https://github.com/Jinjiang/vuejs.org/tree/lang-zh" target="_blank">中文翻译</a>来个 Fork 吧！</div>
 </div>

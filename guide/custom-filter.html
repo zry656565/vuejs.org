@@ -9,7 +9,7 @@
         <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Source+Code+Pro|Dosis:300,500' rel='stylesheet' type='text/css'> -->
         <link rel="icon" href="/images/logo.png" type="image/x-icon">
         <script>
-            window.PAGE_TYPE = "guide"
+            window.PAGE_TYPE = "教程"
         </script>
         <link rel="stylesheet" href="/css/page.css" type="text/css">
         <script>
@@ -40,10 +40,10 @@
     <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
-<li><a href="/guide/" class="nav-link current">入门</a></li>
+<li><a href="/guide/" class="nav-link current">教程</a></li>
 <li><a href="/api/" class="nav-link">API</a></li>
 <li><a href="/examples/" class="nav-link">示例</a></li>
-<li><a href="/blog/" class="nav-link">Blog (英文)</a></li>
+<li><a href="/blog/" class="nav-link">Blog</a></li>
 <li><a href="https://github.com/yyx990803/vue" target="_blank" class="nav-link">GitHub</a></li>
 
     </ul>
@@ -58,15 +58,15 @@
     <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
-<li><a href="/guide/" class="nav-link current">入门</a></li>
+<li><a href="/guide/" class="nav-link current">教程</a></li>
 <li><a href="/api/" class="nav-link">API</a></li>
 <li><a href="/examples/" class="nav-link">示例</a></li>
-<li><a href="/blog/" class="nav-link">Blog (英文)</a></li>
+<li><a href="/blog/" class="nav-link">Blog</a></li>
 <li><a href="https://github.com/yyx990803/vue" target="_blank" class="nav-link">GitHub</a></li>
 
     </ul>
     <div class="list">
-        <h2>Guide</h2>
+        <h2>教程</h2>
         <ul class="menu-root">
             
                 <li>
@@ -86,7 +86,7 @@
                 </li>
             
                 <li>
-                    <a href="/guide/list.html" class="sidebar-link">列表展示</a>
+                    <a href="/guide/list.html" class="sidebar-link">列表渲染</a>
                 </li>
             
                 <li>
@@ -98,7 +98,7 @@
                 </li>
             
                 <li>
-                    <a href="/guide/computed.html" class="sidebar-link">可推导的属性</a>
+                    <a href="/guide/computed.html" class="sidebar-link">计算属性</a>
                 </li>
             
                 <li>
@@ -126,11 +126,11 @@
                 </li>
             
                 <li>
-                    <a href="/guide/faq.html" class="sidebar-link">常见问题</a>
+                    <a href="/guide/best-practices.html" class="sidebar-link new">细节与最佳实践</a>
                 </li>
             
                 <li>
-                    <a href="/guide/best-practices.html" class="sidebar-link new">最佳实践与技巧</a>
+                    <a href="/guide/faq.html" class="sidebar-link">常见问题</a>
                 </li>
             
             <li><a href="http://legacy.vuejs.org">旧版 0.11 文档</a></li>
@@ -144,25 +144,51 @@
 </div>
 
 
-<div class="content guide with-sidebar">
+<div class="content 教程 with-sidebar">
     <h1>自定义过滤器</h1>
     <div id="ad">
         <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
     </div>
-    <h2 id="基本用法">基本用法</h2><p>和自定义指令类似，你可以用全局方法 <code>Vue.filter()</code>，传递一个<strong>过滤器 ID</strong>和一个<strong>过滤器函数</strong>，来注册一个自定义过滤器。过滤器函数会接受一个参数值并返回将其转换后的值：</p>
+    <h2 id="基础">基础</h2><p>和自定义指令类似，你可以用全局方法 <code>Vue.filter()</code>，传递一个<strong>过滤器 ID</strong>和一个<strong>过滤器函数</strong>来注册一个自定义过滤器。过滤器函数会接受一个参数值并返回将其转换后的值：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(<span class="string">'reverse'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 'abc' =&gt; 'cba' --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">v-text</span>=<span class="value">"message | reverse"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>过滤器函数也接受任何内联的参数：</p>
+<p>过滤器函数也可以接受内联参数：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(<span class="string">'wrap'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value, begin, end</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> begin + value + end</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 'hello' =&gt; 'before hello after' --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">v-text</span>=<span class="value">"message | wrap 'before' 'after'"</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="双向过滤器">双向过滤器</h2><p>现在我们已经在展示到视图之前用过滤器把模型model里的值进行了转换。其实我们也可以定义一个过滤器在值从视图view (input 元素) 写回模型model之前进行转换：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(<span class="string">'check-email'</span>, &#123;</span><br><span class="line">  <span class="comment">// read is optional in this case, it's here</span></span><br><span class="line">  <span class="comment">// just for demo purposes.</span></span><br><span class="line">  read: <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> val</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// this will be invoked before writing to</span></span><br><span class="line">  <span class="comment">// the model.</span></span><br><span class="line">  write: <span class="function"><span class="keyword">function</span> (<span class="params">val, oldVal</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> isEmail(val) ? val : oldVal</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="动态参数">动态参数</h2><p>如果一个过滤器参数没有被单引号所围住，它会在vm的数据上下文里被动态地认定。此外，过滤器总是调用当前vm作为它的<code>this</code>上下文。</p>
+<h2 id="双向过滤器">双向过滤器</h2><p>到目前为止，我们使用过滤器都是把来自模型的值在显示到视图之前进行转换。其实我们也可以定义一个过滤器，在把来自视图的值（input 元素）在写回模型之前进行转换：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(<span class="string">'currencyDisplay'</span>, &#123;</span><br><span class="line">  currencyDisplay: &#123;</span><br><span class="line">    <span class="comment">// model -&gt; view</span></span><br><span class="line">    <span class="comment">// formats the value when updating the input element.</span></span><br><span class="line">    read: <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">'$'</span>+val.toFixed(<span class="number">2</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// view -&gt; model</span></span><br><span class="line">    <span class="comment">// formats the value when updating the data.</span></span><br><span class="line">    write: <span class="function"><span class="keyword">function</span>(<span class="params">val, oldVal</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> number = +val.replace(<span class="regexp">/[^\d.]/g</span>, <span class="string">''</span>)</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">isNaN</span>(number) ? <span class="number">0</span> : number</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Demo:</p>
+
+<div id="two-way-filter-demo" class="demo">
+  <input type="text" v-model="money | currencyDisplay">
+  <p>Model value: {{money}}</p>
+</div>
+<script>
+new Vue({
+  el: '#two-way-filter-demo',
+  data: {
+    money: 123.45
+  },
+  filters: {
+    currencyDisplay: {
+      read: function(val) {
+        return '$'+val.toFixed(2)
+      },
+      write: function(val, oldVal) {
+        var number = +val.replace(/[^\d.]/g, '')
+        return isNaN(number) ? 0 : number
+      }
+    }
+  }
+})
+</script>
+
+<h2 id="动态参数">动态参数</h2><p>如果一个过滤器参数没有被引号包裹，它会在当前 vm 的数据作用域里当做表达式进行动态求值。此外，过滤器函数的 <code>this</code> 上下文永远是调用它的当前 vm。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">v-model</span>=<span class="value">"userInput"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">span</span>&gt;</span>&#123;&#123;msg | concat userInput&#125;&#125;<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(<span class="string">'concat'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value, input</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// here `input` === `this.userInput`</span></span><br><span class="line">  <span class="keyword">return</span> value + input</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>在上面这个例子中，你用表达式即可完成相同的结果。但是面对更复杂的处理时，如果需要不止一个声明，你就得把它们放到一个可计算的属性中或一个自定义过滤器中。</p>
-<p>内建的 <code>filterBy</code> 和 <code>orderBy</code> 过滤器都是根据传入的数组以及所属 Vue 实例状态而运行的过滤器。</p>
-<p>很好！是时候了解<a href="../guide/components.html">组件系统</a>的工作方式了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(<span class="string">'concat'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">value, input</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 这里 `input` === `this.userInput`</span></span><br><span class="line">  <span class="keyword">return</span> value + input</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>在上面这个例子中，显然用内联表达式也可以达成相同的效果。但是面对更复杂的需求时，常常需要不止一个语句，这种情况下你就得把逻辑放到一个计算属性中或是一个自定义过滤器中。</p>
+<p>内建的 <code>filterBy</code> 和 <code>orderBy</code> 过滤器都是根据当前 Vue 实例的状态对传入的数组进行处理。</p>
+<p>很好！现在，是时候了解 Vue 的核心概念：<a href="../guide/components.html">组件系统</a>了。</p>
 
     <div class="footer">发现了问题或想要贡献？来 Github 给 Vue.js <a href="https://github.com/vuejs/vuejs.org" target="_blank">英文站点</a>或<a href="https://github.com/Jinjiang/vuejs.org/tree/lang-zh" target="_blank">中文翻译</a>来个 Fork 吧！</div>
 </div>

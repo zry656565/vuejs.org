@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>可推导的属性 - vue.js</title>
+        <title>计算属性 - vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Source+Code+Pro|Dosis:300,500' rel='stylesheet' type='text/css'> -->
         <link rel="icon" href="/images/logo.png" type="image/x-icon">
         <script>
-            window.PAGE_TYPE = "guide"
+            window.PAGE_TYPE = "教程"
         </script>
         <link rel="stylesheet" href="/css/page.css" type="text/css">
         <script>
@@ -40,10 +40,10 @@
     <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
-<li><a href="/guide/" class="nav-link current">入门</a></li>
+<li><a href="/guide/" class="nav-link current">教程</a></li>
 <li><a href="/api/" class="nav-link">API</a></li>
 <li><a href="/examples/" class="nav-link">示例</a></li>
-<li><a href="/blog/" class="nav-link">Blog (英文)</a></li>
+<li><a href="/blog/" class="nav-link">Blog</a></li>
 <li><a href="https://github.com/yyx990803/vue" target="_blank" class="nav-link">GitHub</a></li>
 
     </ul>
@@ -58,15 +58,15 @@
     <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
-<li><a href="/guide/" class="nav-link current">入门</a></li>
+<li><a href="/guide/" class="nav-link current">教程</a></li>
 <li><a href="/api/" class="nav-link">API</a></li>
 <li><a href="/examples/" class="nav-link">示例</a></li>
-<li><a href="/blog/" class="nav-link">Blog (英文)</a></li>
+<li><a href="/blog/" class="nav-link">Blog</a></li>
 <li><a href="https://github.com/yyx990803/vue" target="_blank" class="nav-link">GitHub</a></li>
 
     </ul>
     <div class="list">
-        <h2>Guide</h2>
+        <h2>教程</h2>
         <ul class="menu-root">
             
                 <li>
@@ -86,7 +86,7 @@
                 </li>
             
                 <li>
-                    <a href="/guide/list.html" class="sidebar-link">列表展示</a>
+                    <a href="/guide/list.html" class="sidebar-link">列表渲染</a>
                 </li>
             
                 <li>
@@ -98,7 +98,7 @@
                 </li>
             
                 <li>
-                    <a href="/guide/computed.html" class="sidebar-link current">可推导的属性</a>
+                    <a href="/guide/computed.html" class="sidebar-link current">计算属性</a>
                 </li>
             
                 <li>
@@ -126,11 +126,11 @@
                 </li>
             
                 <li>
-                    <a href="/guide/faq.html" class="sidebar-link">常见问题</a>
+                    <a href="/guide/best-practices.html" class="sidebar-link new">细节与最佳实践</a>
                 </li>
             
                 <li>
-                    <a href="/guide/best-practices.html" class="sidebar-link new">最佳实践与技巧</a>
+                    <a href="/guide/faq.html" class="sidebar-link">常见问题</a>
                 </li>
             
             <li><a href="http://legacy.vuejs.org">旧版 0.11 文档</a></li>
@@ -144,21 +144,30 @@
 </div>
 
 
-<div class="content guide with-sidebar">
-    <h1>可推导的属性</h1>
+<div class="content 教程 with-sidebar">
+    <h1>计算属性</h1>
     <div id="ad">
         <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
     </div>
-    <p>Vue.js 的内联表达式非常方便，但它最好的用武之地其实是简单的布尔操作或字符串拼接。如果涉及更复杂的逻辑，你应该使用<strong>可推导的属性</strong>。</p>
-<p>在 Vue.js 中，你可以通过 <code>computed</code> 选项定义可推导的属性：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> demo = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    firstName: <span class="string">'Foo'</span>,</span><br><span class="line">    lastName: <span class="string">'Bar'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    fullName: &#123;</span><br><span class="line">      <span class="comment">// the getter should return the desired value</span></span><br><span class="line">      get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// the setter is optional</span></span><br><span class="line">      set: <span class="function"><span class="keyword">function</span> (<span class="params">newValue</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> names = newValue.split(<span class="string">' '</span>)</span><br><span class="line">        <span class="keyword">this</span>.firstName = names[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">this</span>.lastName = names[names.length - <span class="number">1</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">demo.fullName <span class="comment">// 'Foo Bar'</span></span><br></pre></td></tr></table></figure>
-<p>当你只需要 getter 的时候，你可以用一个简单的函数替代该对象：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line">computed: &#123;</span><br><span class="line">  fullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName </span><br><span class="line">  &#125;    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
-<p>一个可推导的属性本质上是一个被 getter/setter 函数定义了的属性。可推导的属性使用起来和一般属性一样，只是在访问它的时候，你会得到 getter 函数返回的值，改变它的时候，你会触发 setter 函数并接收新赋的值。</p>
-<p>在 0.12.8 之前，可推导的属性仅仅体现为一个取值的行为——每次你访问它的时候，取值函数都会重新评估。在 0.12.8 中我们做了改进——可推导的属性会被缓存并在必要的情况下做“懒评估”。</p>
-<p class="tip">在 Vue.js 0.11 之前的版本中，曾经有依赖收集机制，需要用户在条件语句中显性列出依赖关系。而在 0.11 之后你已经无需这样做了。</p>
-
-<p>接下来，我们学一学如何<a href="../guide/custom-directive.html">撰写一个自定义的指令</a>.</p>
+    <p>Vue.js 的内联表达式非常方便，但它最合适的使用场景是简单的布尔操作或字符串拼接。如果涉及更复杂的逻辑，你应该使用<strong>计算属性</strong>。</p>
+<p>A computed property is used to declaratively describe a value that depends on other values. When you data-bind to a computed property inside the template, Vue knows when to update the DOM when any of the values depended upon by the computed property has changed. This can be very powerful and makes your code more declarative, data-driven and thus easier to maintain.</p>
+<p>It is often a better idea to use a computed property rather than an imperative <code>$watch</code> callback. Consider this example:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"demo"</span>&gt;</span>&#123;&#123;fullName&#125;&#125;<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    firstName: <span class="string">'Foo'</span>,</span><br><span class="line">    lastName: <span class="string">'Bar'</span>,</span><br><span class="line">    fullName: <span class="string">'Foo Bar'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">vm.$watch(<span class="string">'firstName'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.fullName = val + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">vm.$watch(<span class="string">'lastName'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.fullName = <span class="keyword">this</span>.firstName + <span class="string">' '</span> + val</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>The above code is imperative and cumbersome. Compare it with a computed property version:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    firstName: <span class="string">'Foo'</span>,</span><br><span class="line">    lastName: <span class="string">'Bar'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    fullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>Much better. In addition, you can also provide a setter for a computed property:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line">computed: &#123;</span><br><span class="line">  fullName: &#123;</span><br><span class="line">    <span class="comment">// getter</span></span><br><span class="line">    get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// setter</span></span><br><span class="line">    set: <span class="function"><span class="keyword">function</span> (<span class="params">newValue</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> names = newValue.split(<span class="string">' '</span>)</span><br><span class="line">      <span class="keyword">this</span>.firstName = names[<span class="number">0</span>]</span><br><span class="line">      <span class="keyword">this</span>.lastName = names[names.length - <span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<h3 id="Computed_Poperty_Caching">Computed Poperty Caching</h3><p>在 0.12.8 之前，计算属性仅仅体现为一个取值的行为 —— 每次你访问它的时候，getter 都会重新求值。在 0.12.8 中对此做了改进 —— 计算属性的值会被缓存，只有在其某个反应依赖改变才会重新计算。</p>
+<p>Imagine we have an expensive computed property A, which requires looping through a huge Array and doing a lot of computations. Then, we may have other computed properties that depend on A. Without caching, we’d be calling A’s getter many more times than necessary and this could potentially cause performance issues. With caching, A’s value will be cached as long as its dependencies haven’t changed, and accessing it many times will not trigger unnecessary computations.</p>
+<p>However, it is important to understand what is considered a “reactive dependency”:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    msg: <span class="string">'hi'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    example: &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Date</span>.now() + <span class="keyword">this</span>.msg</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>In the example above, the computed property relies on <code>vm.msg</code>. Because this is an observed data property on the Vue instance, it is considered a reactive dependency. Whenever <code>vm.msg</code> is changed, <code>vm.example</code>‘s value will be re-evaludated.</p>
+<p>However, <code>Date.now()</code> is <strong>not</strong> a reactive dependency, because it has nothing to do with Vue’s data observation system. Therefore, when you programatically access <code>vm.computed</code>, you will find the timestamp to remain the same unless <code>vm.msg</code> triggered a re-evaluation.</p>
+<p>Sometimes you may want to preserve the simple getter-like behavior, where every time you access <code>vm.example</code> it is simply re-evaluated. Starting in 0.12.11, it’s possible to turn off caching for a specific computed property:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  example: &#123;</span><br><span class="line">    cache: <span class="literal">false</span>,</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">Date</span>.now() + <span class="keyword">this</span>.msg</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now, every time you access <code>vm.example</code>, the timestamp will be up-to-date. However, note this only affects programmatic access inside JavaScript; data-bindings are still dependency-driven. When you bind to a computed property in the template as <code>{{example}}</code>, the DOM will only be updated when a reactive dependency has changed.</p>
+<p>接下来，让我们学习一下如何<a href="../guide/custom-directive.html">编写自定义指令</a>。</p>
 
     <div class="footer">发现了问题或想要贡献？来 Github 给 Vue.js <a href="https://github.com/vuejs/vuejs.org" target="_blank">英文站点</a>或<a href="https://github.com/Jinjiang/vuejs.org/tree/lang-zh" target="_blank">中文翻译</a>来个 Fork 吧！</div>
 </div>

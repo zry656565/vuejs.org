@@ -9,7 +9,7 @@
         <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Source+Code+Pro|Dosis:300,500' rel='stylesheet' type='text/css'> -->
         <link rel="icon" href="/images/logo.png" type="image/x-icon">
         <script>
-            window.PAGE_TYPE = "guide"
+            window.PAGE_TYPE = "教程"
         </script>
         <link rel="stylesheet" href="/css/page.css" type="text/css">
         <script>
@@ -40,10 +40,10 @@
     <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
-<li><a href="/guide/" class="nav-link current">入门</a></li>
+<li><a href="/guide/" class="nav-link current">教程</a></li>
 <li><a href="/api/" class="nav-link">API</a></li>
 <li><a href="/examples/" class="nav-link">示例</a></li>
-<li><a href="/blog/" class="nav-link">Blog (英文)</a></li>
+<li><a href="/blog/" class="nav-link">Blog</a></li>
 <li><a href="https://github.com/yyx990803/vue" target="_blank" class="nav-link">GitHub</a></li>
 
     </ul>
@@ -58,15 +58,15 @@
     <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
-<li><a href="/guide/" class="nav-link current">入门</a></li>
+<li><a href="/guide/" class="nav-link current">教程</a></li>
 <li><a href="/api/" class="nav-link">API</a></li>
 <li><a href="/examples/" class="nav-link">示例</a></li>
-<li><a href="/blog/" class="nav-link">Blog (英文)</a></li>
+<li><a href="/blog/" class="nav-link">Blog</a></li>
 <li><a href="https://github.com/yyx990803/vue" target="_blank" class="nav-link">GitHub</a></li>
 
     </ul>
     <div class="list">
-        <h2>Guide</h2>
+        <h2>教程</h2>
         <ul class="menu-root">
             
                 <li>
@@ -86,7 +86,7 @@
                 </li>
             
                 <li>
-                    <a href="/guide/list.html" class="sidebar-link">列表展示</a>
+                    <a href="/guide/list.html" class="sidebar-link">列表渲染</a>
                 </li>
             
                 <li>
@@ -98,7 +98,7 @@
                 </li>
             
                 <li>
-                    <a href="/guide/computed.html" class="sidebar-link">可推导的属性</a>
+                    <a href="/guide/computed.html" class="sidebar-link">计算属性</a>
                 </li>
             
                 <li>
@@ -126,11 +126,11 @@
                 </li>
             
                 <li>
-                    <a href="/guide/faq.html" class="sidebar-link">常见问题</a>
+                    <a href="/guide/best-practices.html" class="sidebar-link new">细节与最佳实践</a>
                 </li>
             
                 <li>
-                    <a href="/guide/best-practices.html" class="sidebar-link new">最佳实践与技巧</a>
+                    <a href="/guide/faq.html" class="sidebar-link">常见问题</a>
                 </li>
             
             <li><a href="http://legacy.vuejs.org">旧版 0.11 文档</a></li>
@@ -144,7 +144,7 @@
 </div>
 
 
-<div class="content guide with-sidebar">
+<div class="content 教程 with-sidebar">
     <h1>安装</h1>
     <div id="ad">
         <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
@@ -152,12 +152,12 @@
     <blockquote>
 <p><strong>兼容性提示：</strong>Vue.js 不支持 IE8 及其以下版本。</p>
 </blockquote>
-<h2 id="独立版本">独立版本</h2><p>直接下载并写入一个 script 标签中，<code>Vue</code> 就会被注册为一个全局变量。</p>
-<div id="downloads"><br><a class="button" href="https://raw.github.com/yyx990803/vue/0.12.9/dist/vue.js" download="" target="_blank" rel="external">开发者版本</a><span class="light info">227.24kb, plenty of comments and debug/warning messages.</span><br><br><a class="button" href="https://raw.github.com/yyx990803/vue/0.12.9/dist/vue.min.js" download="" target="_blank" rel="external">生产版本</a><span class="light info">68.65kb minified / 22.42kb gzipped</span><br></div>
+<h2 id="独立版本">独立版本</h2><p>直接下载并用 <code>&lt;script&gt;</code> 标签引入，<code>Vue</code> 就会被注册为一个全局变量。</p>
+<div id="downloads"><br><a class="button" href="https://raw.github.com/yyx990803/vue/0.12.12/dist/vue.js" download="" target="_blank" rel="external">开发版本</a><span class="light info">232.67kb, 包含丰富的注释和警告信息。</span><br><br><a class="button" href="https://raw.github.com/yyx990803/vue/0.12.12/dist/vue.min.js" download="" target="_blank" rel="external">生产版本</a><span class="light info">70.38kb minified / 22.94kb gzipped</span><br></div>
 
-<h3 id="CDN">CDN</h3><p>也可以在<a href="//cdn.jsdelivr.net/vue/0.12.9/vue.min.js">jsdelivr</a> 或 <a href="//cdnjs.cloudflare.com/ajax/libs/vue/0.12.9/vue.min.js">cdnjs</a>获取(版本更新可能会略滞后)。</p>
-<h3 id="CSP_一致版本">CSP 一致版本</h3><p>部分环境，诸如 Google Chrome Apps，强制要求内容加密策略 (CSP) 并且不允许使用<code>new Function()</code> 作为计算表达式。在此情况下，你可以用 <a href="https://github.com/yyx990803/vue/tree/csp/dist" target="_blank" rel="external">CSP一致版本</a>代替。</p>
-<h2 id="NPM">NPM</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install vue</span><br><span class="line"><span class="comment"># 获取CSP一致版本：</span></span><br><span class="line">$ npm install vue@csp</span><br><span class="line"><span class="comment"># 获取最新开发版本(来自于GitHub):</span></span><br><span class="line">$ npm install yyx990803/vue<span class="comment">#dev</span></span><br></pre></td></tr></table></figure>
+<h3 id="CDN">CDN</h3><p>也可以在 <a href="//cdn.jsdelivr.net/vue/0.12.12/vue.min.js">jsdelivr</a> 或 <a href="//cdnjs.cloudflare.com/ajax/libs/vue/0.12.12/vue.min.js">cdnjs</a> 获取 (版本更新可能会略滞后)。</p>
+<h3 id="CSP_兼容版本">CSP 兼容版本</h3><p>部分环境，诸如 Google Chrome Apps，强制要求内容安全策略 (CSP) 并且不允许使用 <code>new Function()</code> 来进行表达式求值。在此情况下，你可以用 <a href="https://github.com/yyx990803/vue/tree/csp/dist" target="_blank" rel="external">CSP 兼容版本</a>代替。</p>
+<h2 id="NPM">NPM</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm install vue</span><br><span class="line"><span class="comment"># 获取CSP兼容版本：</span></span><br><span class="line">$ npm install vue@csp</span><br><span class="line"><span class="comment"># 获取最新开发版本(来自于GitHub):</span></span><br><span class="line">$ npm install yyx990803/vue<span class="comment">#dev</span></span><br></pre></td></tr></table></figure>
 <h2 id="Bower">Bower</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Bower 只能够获得稳定版本</span></span><br><span class="line">$ bower install vue</span><br></pre></td></tr></table></figure>
 <h2 id="AMD_模块加载器">AMD 模块加载器</h2><p>直接下载或通过 Bower 安装的版本已经用 UMD 接口包装过，可以直接作为 AMD 模块使用。</p>
 <h2 id="准备好了吗？">准备好了吗？</h2><p><a href="../guide/">走起！</a></p>

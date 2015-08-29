@@ -40,10 +40,10 @@
     <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
-<li><a href="/guide/" class="nav-link">入门</a></li>
+<li><a href="/guide/" class="nav-link">教程</a></li>
 <li><a href="/api/" class="nav-link current">API</a></li>
 <li><a href="/examples/" class="nav-link">示例</a></li>
-<li><a href="/blog/" class="nav-link">Blog (英文)</a></li>
+<li><a href="/blog/" class="nav-link">Blog</a></li>
 <li><a href="https://github.com/yyx990803/vue" target="_blank" class="nav-link">GitHub</a></li>
 
     </ul>
@@ -58,10 +58,10 @@
     <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
-<li><a href="/guide/" class="nav-link">入门</a></li>
+<li><a href="/guide/" class="nav-link">教程</a></li>
 <li><a href="/api/" class="nav-link current">API</a></li>
 <li><a href="/examples/" class="nav-link">示例</a></li>
-<li><a href="/blog/" class="nav-link">Blog (英文)</a></li>
+<li><a href="/blog/" class="nav-link">Blog</a></li>
 <li><a href="https://github.com/yyx990803/vue" target="_blank" class="nav-link">GitHub</a></li>
 
     </ul>
@@ -70,7 +70,7 @@
         <ul class="menu-root">
             
                 <li>
-                    <a href="/api/index.html" class="sidebar-link">Vue 构造函数</a>
+                    <a href="/api/index.html" class="sidebar-link">概述</a>
                 </li>
             
                 <li>
@@ -118,16 +118,16 @@
         <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
     </div>
     <blockquote>
-<p>下面是在 Vue.js 模板中一些出于特殊目的设计的抽象元素的列表</p>
+<p>下面是一些 Vue.js 内置的抽象元素，它们在模板中有特殊作用。</p>
 </blockquote>
 <h3 id="component">component</h3><p>使用组件的另一种语法。主要配合 <code>is</code> 特性用于动态化的组件：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- a dynamic component controlled by --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- the `componentId` property on the vm --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">component</span> <span class="attribute">is</span>=<span class="value">"&#123;&#123;componentId&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="title">component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 动态组件，由 vm 的 `componentId` 属性控制 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">component</span> <span class="attribute">is</span>=<span class="value">"&#123;&#123;componentId&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="title">component</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="content">content</h3><p><code>&lt;content&gt;</code> 标签用于作为组件模板的内容插入点，而 <code>&lt;content&gt;</code> 元素本身会被真正的内容所替换。它接受一个 <code>select</code> 的可选特性，该特性应该是一个合法的 CSS 选择器，这样只有匹配这一选择器的被插入内容的子集才会被展示：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- only display &lt;li&gt;'s in the inserted content --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">content</span> <span class="attribute">select</span>=<span class="value">"li"</span>&gt;</span><span class="tag">&lt;/<span class="title">content</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>其实 select 特性还可以包含 mustache 表达式。更多细节参见<a href="/guide/components.html#Content_Insertion">内容插入</a>。</p>
-<h3 id="partial">partial</h3><p><code>&lt;partial&gt;</code> 标签用于作为注册片段的结点。片段内容在插入时也会被 Vue 编译，同时 <code>&lt;partial&gt;</code> 元素本身会被替换掉。它需要提供一个 <code>name</code> 特性。比如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// registering a partial</span></span><br><span class="line">Vue.partial(<span class="string">'my-partial'</span>, <span class="string">'&lt;p&gt;This is a partial! &#123;&#123;msg&#125;&#125;&lt;/p&gt;'</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- a static partial --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">partial</span> <span class="attribute">name</span>=<span class="value">"my-partial"</span>&gt;</span><span class="tag">&lt;/<span class="title">partial</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- a dynamic partial --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">partial</span> <span class="attribute">name</span>=<span class="value">"&#123;&#123;partialId&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="title">partial</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 只显示插入内容中的 &lt;li&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">content</span> <span class="attribute">select</span>=<span class="value">"li"</span>&gt;</span><span class="tag">&lt;/<span class="title">content</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其实 select 特性还可以包含 mustache 表达式。更多细节参见<a href="/guide/components.html#内容插入">内容插入</a>。</p>
+<h3 id="partial">partial</h3><p><code>&lt;partial&gt;</code> 用作注册的模板片段的插入点。片段内容在插入时也会被 Vue 编译，同时 <code>&lt;partial&gt;</code> 元素本身会被替换掉。它需要提供一个 <code>name</code> 特性。比如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册模板片段</span></span><br><span class="line">Vue.partial(<span class="string">'my-partial'</span>, <span class="string">'&lt;p&gt;This is a partial! &#123;&#123;msg&#125;&#125;&lt;/p&gt;'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 静态模板片段 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">partial</span> <span class="attribute">name</span>=<span class="value">"my-partial"</span>&gt;</span><span class="tag">&lt;/<span class="title">partial</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 动态模板片段 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">partial</span> <span class="attribute">name</span>=<span class="value">"&#123;&#123;partialId&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="title">partial</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
     <div class="footer">发现了问题或想要贡献？来 Github 给 Vue.js <a href="https://github.com/vuejs/vuejs.org" target="_blank">英文站点</a>或<a href="https://github.com/Jinjiang/vuejs.org/tree/lang-zh" target="_blank">中文翻译</a>来个 Fork 吧！</div>
 </div>

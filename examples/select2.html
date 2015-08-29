@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Vue.js 0.11 released! - vue.js</title>
+        <title>Custom Directive - vue.js</title>
         <meta charset="utf-8">
         <meta name="description" content="Vue.js - Intuitive, Fast and Composable MVVM for building interactive interfaces.">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600|Source+Code+Pro|Dosis:300,500' rel='stylesheet' type='text/css'> -->
         <link rel="icon" href="/images/logo.png" type="image/x-icon">
         <script>
-            window.PAGE_TYPE = ""
+            window.PAGE_TYPE = "examples"
         </script>
         <link rel="stylesheet" href="/css/page.css" type="text/css">
         <script>
@@ -42,15 +42,16 @@
 </li>
 <li><a href="/guide/" class="nav-link">教程</a></li>
 <li><a href="/api/" class="nav-link">API</a></li>
-<li><a href="/examples/" class="nav-link">示例</a></li>
-<li><a href="/blog/" class="nav-link current">Blog</a></li>
+<li><a href="/examples/" class="nav-link current">示例</a></li>
+<li><a href="/blog/" class="nav-link">Blog</a></li>
 <li><a href="https://github.com/yyx990803/vue" target="_blank" class="nav-link">GitHub</a></li>
 
     </ul>
 </div>
             <div id="main">
                 
-                    <div class="sidebar blog">
+                    
+    <div class="sidebar">
     <ul class="main-menu">
         <li>
   <form id="search-form">
@@ -59,54 +60,41 @@
 </li>
 <li><a href="/guide/" class="nav-link">教程</a></li>
 <li><a href="/api/" class="nav-link">API</a></li>
-<li><a href="/examples/" class="nav-link">示例</a></li>
-<li><a href="/blog/" class="nav-link current">Blog</a></li>
+<li><a href="/examples/" class="nav-link current">示例</a></li>
+<li><a href="/blog/" class="nav-link">Blog</a></li>
 <li><a href="https://github.com/yyx990803/vue" target="_blank" class="nav-link">GitHub</a></li>
 
     </ul>
     <div class="list">
-        <h2>Recent Posts</h2>
-        <ul>
-        
-            <li>
-                <a href="/2015/06/11/012-release/" class="sidebar-link">Vue.js 0.12 released!</a>
+        <h2>Examples</h2>
+        <ul class="menu-root">
+            
+                <li>
+                    <a href="/examples/select2.html" class="sidebar-link current new">Custom Directive</a>
+                </li>
+            
+            <li><a href="http://legacy.vuejs.org">旧版 0.11 文档</a></li>
+            <li style="margin:10px 0 3px">
+              <script data-gittip-username="yyx990803"
+                data-gittip-widget="button"
+                src="//gttp.co/v1.js"></script>
             </li>
-        
-            <li>
-                <a href="/2014/12/08/011-component/" class="sidebar-link">0.11 Component Tips</a>
-            </li>
-        
-            <li>
-                <a href="/2014/11/09/vue-011-release/" class="sidebar-link current">Vue.js 0.11 released!</a>
-            </li>
-        
-            <li>
-                <a href="/2014/07/29/vue-next/" class="sidebar-link">Vue.js 0.10.6, and what's next</a>
-            </li>
-        
-            <li>
-                <a href="/2014/03/22/vuejs-010-release/" class="sidebar-link">Vue.js 0.10 is here!</a>
-            </li>
-        
-        <li style="margin:10px 0 3px">
-          <script data-gittip-username="yyx990803"
-            data-gittip-widget="button"
-            src="//gttp.co/v1.js"></script>
-        </li>
         </ul>
     </div>
 </div>
-<div class="content blog">
-    <h1>Vue.js 0.11 released!</h1>
+
+
+<div class="content examples with-sidebar">
+    <h1>示例: Custom Directive</h1>
     <div id="ad">
         <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=vuejs" id="_carbonads_js"></script>
     </div>
-    <h4>Nov 9, 2014</h4>
-    <p>After the long wait, <a href="https://github.com/yyx990803/vue/releases/tag/0.11.0" target="_blank" rel="external">Vue.js 0.11 <strong>Cowboy Bebop</strong></a> is finally here! Thanks to everyone who tried out the release candidate versions and provided feedback / bug reports along the way.</p>
-<a id="more"></a>
-<p>The 0.11 release introduced many new features and also a fair number of breaking changes, so please carefully read through the <a href="https://github.com/yyx990803/vue/blob/master/changes.md" target="_blank" rel="external">0.11 Change List</a> before upgrading. Aside from the API changes, 0.11 also ships with better <a href="https://codeclimate.com/github/yyx990803/vue" target="_blank" rel="external">code quality</a> and <a href="https://coveralls.io/r/yyx990803/vue" target="_blank" rel="external">test coverage</a>, and is considerably more robust in almost every aspect.</p>
-<p>This documentation site has been fully upgraded to match the new 0.11 API. For the now legacy 0.10.6 version, you can still find documentations for it at <a href="http://legacy.vuejs.org" target="_blank" rel="external">legacy.vuejs.org</a>.</p>
+    <blockquote>
+<p>In this example we are integrating a 3rd party jQuery plugin (select2) by wrapping it inside a custom directive.</p>
+</blockquote>
+<iframe width="100%" height="500" src="http://jsfiddle.net/yyx990803/zuc27nw9/embedded/result,html,js,css" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
+    <div class="footer">发现了问题或想要贡献？来 Github 给 Vue.js <a href="https://github.com/vuejs/vuejs.org" target="_blank">英文站点</a>或<a href="https://github.com/Jinjiang/vuejs.org/tree/lang-zh" target="_blank">中文翻译</a>来个 Fork 吧！</div>
 </div>
                 
             </div>

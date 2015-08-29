@@ -40,10 +40,10 @@
     <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
-<li><a href="/guide/" class="nav-link">入门</a></li>
+<li><a href="/guide/" class="nav-link">教程</a></li>
 <li><a href="/api/" class="nav-link current">API</a></li>
 <li><a href="/examples/" class="nav-link">示例</a></li>
-<li><a href="/blog/" class="nav-link">Blog (英文)</a></li>
+<li><a href="/blog/" class="nav-link">Blog</a></li>
 <li><a href="https://github.com/yyx990803/vue" target="_blank" class="nav-link">GitHub</a></li>
 
     </ul>
@@ -58,10 +58,10 @@
     <input type="text" id="search-query" class="st-default-search-input">
   </form>
 </li>
-<li><a href="/guide/" class="nav-link">入门</a></li>
+<li><a href="/guide/" class="nav-link">教程</a></li>
 <li><a href="/api/" class="nav-link current">API</a></li>
 <li><a href="/examples/" class="nav-link">示例</a></li>
-<li><a href="/blog/" class="nav-link">Blog (英文)</a></li>
+<li><a href="/blog/" class="nav-link">Blog</a></li>
 <li><a href="https://github.com/yyx990803/vue" target="_blank" class="nav-link">GitHub</a></li>
 
     </ul>
@@ -70,7 +70,7 @@
         <ul class="menu-root">
             
                 <li>
-                    <a href="/api/index.html" class="sidebar-link">Vue 构造函数</a>
+                    <a href="/api/index.html" class="sidebar-link">概述</a>
                 </li>
             
                 <li>
@@ -121,42 +121,42 @@
 <li><strong>Type:</strong> <code>HTMLElement</code></li>
 <li><strong>只读</strong></li>
 </ul>
-<p>返回Vue实例正在管理的Dom元素。</p>
+<p>返回当前 Vue 实例正在管理的 DOM 元素。注意对于<a href="/guide/best-practices.html#片段实例">片段实例</a>，<code>vm.$el</code> 指向的是一个代表片段起始位置的锚节点。</p>
 <h3 id="vm-$data">vm.$data</h3><ul>
 <li><strong>Type:</strong> <code>Object</code></li>
 </ul>
-<p>返回Vue实例正在监视的数据对象(data object)。当然你可以用新的对象去替换它。Vue实例通过代理方法访问他们的$data对象的属性。</p>
+<p>返回当前 Vue 实例正在监视的数据对象 (data object)。你可以用新的对象去替换它。Vue 实例会代理其 $data 对象上的所有属性。</p>
 <h3 id="vm-$options">vm.$options</h3><ul>
 <li><strong>Type:</strong> <code>Object</code></li>
 </ul>
-<p>返回当前Vue实例所使用的实例化选项。当你想要添加自定义的属性到实例化选项里面的时候，这个属性是很有用的:</p>
+<p>返回当前 Vue 实例所使用的实例化选项。如果你想要调用自定义选项，就会需要用到这个属性:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  customOption: <span class="string">'foo'</span>,</span><br><span class="line">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.$options.customOption) <span class="comment">// -&gt; 'foo'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h3 id="vm-$parent">vm.$parent</h3><ul>
 <li><strong>Type:</strong> <code>Vue</code></li>
 <li><strong>只读</strong></li>
 </ul>
-<p>如果当前Vue实例有父实例(parent instance)，将返回父实例。</p>
+<p>返回当前 vm 的父实例（如果存在的话）。</p>
 <h3 id="vm-$root">vm.$root</h3><ul>
 <li><strong>Type:</strong> <code>Vue</code></li>
 <li><strong>只读</strong></li>
 </ul>
-<p>返回当前Vue结构树(component tree)的根Vue实例。如果当前的 <code>vm</code> 已经没有父实例的话将会返回它自己。</p>
+<p>返回当前组件树的根 Vue 实例。如果当前实例已经没有父实例的话将会返回它自己。</p>
 <h3 id="vm-$children">vm.$children</h3><ul>
 <li><strong>Type:</strong> <code>Array&lt;Vue&gt;</code></li>
 <li><strong>只读</strong></li>
 </ul>
-<p>返回当前实例直系的子组件数组。</p>
+<p>返回当前实例的直接子实例数组。</p>
 <h3 id="vm-$">vm.$</h3><ul>
 <li><strong>Type:</strong> <code>Object</code></li>
 <li><strong>只读</strong></li>
 </ul>
-<p>返回一个对象，这个对象管理着有着 <code>v-ref</code> 指令的子组件。更多细节请查看 <a href="../api/directives.html#v-ref">v-ref</a>.</p>
+<p>返回一个对象，这个对象包含通过 <code>v-ref</code> 指令注册的子组件。更多细节请查看 <a href="../api/directives.html#v-ref">v-ref</a>。</p>
 <h3 id="vm-$$">vm.$$</h3><ul>
 <li><strong>Type:</strong> <code>Object</code></li>
 <li><strong>Read only</strong></li>
 </ul>
-<p>返回一个对象，这个对象管理所有有着 <code>v-el</code> 指令的DOM元素。更多细节请查看 <a href="../api/directives.html#v-el">v-el</a>.</p>
-<h3 id="Meta_Properties">Meta Properties</h3><p>被 <code>v-repeat</code> 创建出来的实例也会拥有一些元属性(Meta properties)。例如 <code>vm.$index</code>, <code>vm.$key</code> 和 <code>vm.$value</code> 等。更多细节请查看 <a href="../guide/list.html">the guide on using <code>v-repeat</code></a>.</p>
+<p>返回一个对象，这个对象包含通过 <code>v-el</code> 指令注册的 DOM 元素。更多细节请查看 <a href="../api/directives.html#v-el">v-el</a>。</p>
+<h3 id="元属性">元属性</h3><p>被 <code>v-repeat</code> 创建出来的实例也会拥有一些元属性 (Meta properties)。例如 <code>vm.$index</code>, <code>vm.$key</code> 和 <code>vm.$value</code> 等。更多细节请查看教程中的 <a href="../guide/list.html">列表渲染</a> 章节。</p>
 
     <div class="footer">发现了问题或想要贡献？来 Github 给 Vue.js <a href="https://github.com/vuejs/vuejs.org" target="_blank">英文站点</a>或<a href="https://github.com/Jinjiang/vuejs.org/tree/lang-zh" target="_blank">中文翻译</a>来个 Fork 吧！</div>
 </div>
