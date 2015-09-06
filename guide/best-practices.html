@@ -174,7 +174,7 @@
 <li><code>vm.$add(key, value)</code></li>
 <li><code>vm.$delete(key, value)</code></li>
 </ul>
-<p>注意 <code>vm.$get</code> 和 <code>vm.set</code> 都接受路径。</p>
+<p>注意 <code>vm.$get</code> 和 <code>vm.$set</code> 都接受路径。</p>
 <p class="tip">尽管存在这些方法，但我强烈建议你只在必要的时候才动态添加可观察属性。为了理解你的组件状态，将 <code>data</code> 选项看做一个 schema 很有帮助。假如你清晰地列出一个组件中所有可能存在的属性，那么当你隔了几个月再来维护这个组件的时候，就可以更容易地理解这个组件可能包含怎样的状态。</p>
 
 <h2 id="理解异步更新">理解异步更新</h2><p>默认情况下， Vue 的 DOM 更新是<strong>异步执行</strong>的。理解这一点非常重要。当侦测到数据变化时， Vue 会打开一个队列，然后把在同一个事件循环 (event loop) 当中观察到数据变化的 watcher 推送进这个队列。假如一个 watcher 在一个事件循环中被触发了多次，它只会被推送到队列中一次。然后，在进入下一次的事件循环时， Vue 会清空队列并进行必要的 DOM 更新。在内部，Vue 会使用 <code>MutationObserver</code> 来实现队列的异步处理，如果不支持则会回退到 <code>setTimeout(fn, 0)</code>。</p>
